@@ -10,5 +10,6 @@
         android:textSize="20sp"
         android:background="#f00"
         android:gravity="center"
+        android:layout_marginTop="140dp"
      />
 </FrameLayout>

@@ -9,6 +9,6 @@
         android:text="Fragment3"
         android:textSize="20sp"
         android:background="#00f"
-
+        android:layout_marginTop="140dp"
         android:gravity="center"/>
 </FrameLayout>

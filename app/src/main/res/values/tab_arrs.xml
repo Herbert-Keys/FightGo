@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tab_arrs">
+        <item>Fragment1</item>
+        <item>Fragment2</item>
+        <item>Fragment3</item>
+    </string-array>
+</resources>

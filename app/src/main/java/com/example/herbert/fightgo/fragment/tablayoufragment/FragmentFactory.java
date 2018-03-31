@@ -1,5 +1,11 @@
 package com.example.herbert.fightgo.fragment.tablayoufragment;
 
+import android.support.v4.app.Fragment;
+
+import com.example.herbert.fightgo.fragment.bottomnavigationfragment.F1;
+import com.example.herbert.fightgo.fragment.bottomnavigationfragment.F2;
+import com.example.herbert.fightgo.fragment.bottomnavigationfragment.F3;
+
 import java.util.HashMap;
 
 /**
@@ -7,40 +13,23 @@ import java.util.HashMap;
  */
 
 public class FragmentFactory {
-    private static HashMap<Integer, BaseFragment> mBaseFragments = new HashMap<Integer, BaseFragment>();
+    private static HashMap<Integer, Fragment> mBaseFragments = new HashMap<Integer, Fragment>();
 
-    public static BaseFragment createFragment(int pos) {
-        BaseFragment baseFragment = mBaseFragments.get(pos);
+    public static Fragment createFragment(int pos) {
+        Fragment baseFragment = mBaseFragments.get(pos);
 
         if (baseFragment == null) {
             switch (pos) {
                 case 0:
-                    baseFragment = new TopLineFragment();//头条
+                    baseFragment = new F1();//头条
                     break;
                 case 1:
-                    baseFragment = new NewsFragment();//要闻
+                    baseFragment = new F2();//要闻
                     break;
                 case 2:
-                    baseFragment = new EntertainmentFragment();//娱乐
+                    baseFragment = new F3();//娱乐
                     break;
-                case 3:
-                    baseFragment = new SportsFragment();//体育
-                    break;
-                case 4:
-                    baseFragment = new FinanceFragment();//财经
-                    break;
-                case 5:
-                    baseFragment = new ScienceFragment();//科技
-                    break;
-                case 6:
-                    baseFragment = new ModeFragment();//时尚
-                    break;
-                case 7:
-                    baseFragment = new VideoFragment();//视频
-                    break;
-                case 8:
-                    baseFragment = new  DirectSeedingFragment();//直播
-                    break;
+
 
             }
             mBaseFragments.put(pos, baseFragment);
