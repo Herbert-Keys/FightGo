@@ -2,6 +2,8 @@ package com.example.herbert.fightgo;
 
 import android.Manifest;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,10 +18,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.example.herbert.fightgo.Model.RecyclerItemModel;
 import com.example.herbert.fightgo.activity.BottomNavigationActivity;
@@ -42,6 +49,10 @@ public class MainActivity extends AppCompatActivity
     RecyclerView recycview;
     private List<RecyclerItemModel> data=new ArrayList<>();
     Toolbar toolbar;
+    private int height;
+    private int width;
+    FloatingActionButton fab;
+    Button bt_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +61,9 @@ public class MainActivity extends AppCompatActivity
         requestPemissions();
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        height=getWindowManager().getDefaultDisplay().getHeight();
+        width=getWindowManager().getDefaultDisplay().getWidth();
+        fab= (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -152,13 +164,52 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.action_settings:
                 return true;
-
+            case R.id.action_popup_window:
+                showPW();
+                return true;
             case android.R.id.home:
                 toggle.onOptionsItemSelected(item);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showPW() {
+        final View inflate = LayoutInflater.from(this).inflate(R.layout.popup_layout, null, false);
+        bt_login=inflate.findViewById(R.id.bt_login);
+        final TextView username = inflate.findViewById(R.id.username);
+        final TextView password = inflate.findViewById(R.id.password);
+        final PopupWindow popupWindow=new PopupWindow(inflate, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT,true);
+        popupWindow.setWidth(600);
+        popupWindow.setBackgroundDrawable(new ColorDrawable(Color.YELLOW));
+        popupWindow.setOutsideTouchable(false);
+        //popupWindow.setTouchable(true);
+        popupWindow.setAnimationStyle(R.style.animTranslate);
+        //popupWindow.showAsDropDown(fab,100,0);
+        popupWindow.showAtLocation(fab, Gravity.CENTER, 0, 0);
+        bt_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if("aa".equals(username.getText().toString())&&"123".equals(password.getText().toString())){
+                    Snackbar.make(inflate,"登陆成功",Snackbar.LENGTH_SHORT).setAction("确定", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            popupWindow.dismiss();
+                        }
+                    }).show();
+                }else{
+                    Snackbar.make(inflate,"登陆失败",Snackbar.LENGTH_SHORT).setAction("算了", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            popupWindow.dismiss();
+                        }
+                    }).show();
+                }
+
+            }
+        });
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
