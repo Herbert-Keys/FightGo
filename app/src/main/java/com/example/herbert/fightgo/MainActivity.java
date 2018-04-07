@@ -31,6 +31,7 @@ import android.widget.TextView;
 import com.example.herbert.fightgo.Model.RecyclerItemModel;
 import com.example.herbert.fightgo.activity.BottomNavigationActivity;
 import com.example.herbert.fightgo.activity.FullscreenActivity;
+import com.example.herbert.fightgo.activity.JPushActivity;
 import com.example.herbert.fightgo.activity.ScrollingActivity;
 import com.example.herbert.fightgo.activity.TabLayoutActivity;
 import com.example.herbert.fightgo.activity.UmengShareActivity;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
+
         toolbar.setNavigationIcon(R.mipmap.ic_launcher_round);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
@@ -110,6 +112,9 @@ public class MainActivity extends AppCompatActivity
                     case "UmengShareActivity":
                         startActivity(new Intent(MainActivity.this,UmengShareActivity.class));
                         break;
+                    case "JPushActivity":
+                        startActivity(new Intent(MainActivity.this, JPushActivity.class));
+                        break;
                 }
             }
         });
@@ -136,6 +141,7 @@ public class MainActivity extends AppCompatActivity
         data.add(new RecyclerItemModel("BottomNavigationActivity",R.mipmap.yellow));
         data.add(new RecyclerItemModel("TabLayout",R.mipmap.black));
         data.add(new RecyclerItemModel("UmengShareActivity",R.mipmap.red));
+        data.add(new RecyclerItemModel("JPushActivity",R.mipmap.green));
     }
 
     @Override

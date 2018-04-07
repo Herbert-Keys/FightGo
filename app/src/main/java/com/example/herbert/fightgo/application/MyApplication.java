@@ -6,6 +6,8 @@ import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by Administrator on 2018/3/31.
  */
@@ -22,6 +24,9 @@ public class MyApplication extends Application {
          */
         UMConfigure.setLogEnabled(true);
         PlatformConfig.setQQZone("1106814406", "MGhb8P7NQDzcZyvi");
+
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
     }
 
 
