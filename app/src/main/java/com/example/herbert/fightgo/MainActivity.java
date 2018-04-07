@@ -1,6 +1,7 @@
 package com.example.herbert.fightgo;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity
     private int width;
     FloatingActionButton fab;
     Button bt_login;
+    DrawerLayout drawer;
+    ProgressDialog  progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         toolbar.setNavigationIcon(R.mipmap.ic_launcher_round);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer= (DrawerLayout) findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
                 this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -117,6 +120,7 @@ public class MainActivity extends AppCompatActivity
                         break;
                 }
             }
+
         });
         recycview.setAdapter(myRecyclerViewAdapter);
         recycview.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -132,7 +136,14 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        initDialog();
+    }
 
+    private void initDialog() {
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("正在加载。。");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
     }
 
     private void initRecyclerData() {
@@ -169,6 +180,7 @@ public class MainActivity extends AppCompatActivity
 
         switch (item.getItemId()) {
             case R.id.action_settings:
+                progressDialog.dismiss();
                 return true;
             case R.id.action_popup_window:
                 showPW();
@@ -193,19 +205,19 @@ public class MainActivity extends AppCompatActivity
         //popupWindow.setTouchable(true);
         popupWindow.setAnimationStyle(R.style.animTranslate);
         //popupWindow.showAsDropDown(fab,100,0);
-        popupWindow.showAtLocation(fab, Gravity.CENTER, 0, 0);
+        popupWindow.showAtLocation(toolbar, Gravity.CENTER, 0, 0);
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if("aa".equals(username.getText().toString())&&"123".equals(password.getText().toString())){
-                    Snackbar.make(inflate,"登陆成功",Snackbar.LENGTH_SHORT).setAction("确定", new View.OnClickListener() {
+                    Snackbar.make(drawer,"登陆成功",Snackbar.LENGTH_SHORT).setAction("确定", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             popupWindow.dismiss();
                         }
                     }).show();
                 }else{
-                    Snackbar.make(inflate,"登陆失败",Snackbar.LENGTH_SHORT).setAction("算了", new View.OnClickListener() {
+                    Snackbar.make(drawer,"登陆失败",Snackbar.LENGTH_SHORT).setAction("算了", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             popupWindow.dismiss();
