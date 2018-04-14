@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/tv_f2"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_divide"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Fragment2"
-        android:textSize="20sp"
-        android:background="#0f0"
-        android:gravity="center"
-        android:layout_marginTop="140dp"
-      />
-</FrameLayout>
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recy_divide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:id="@+id/ll_bt"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/bt_add"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="添加"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"/>
+            <Button
+                android:id="@+id/bt_remove"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="删除"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+    </RelativeLayout>

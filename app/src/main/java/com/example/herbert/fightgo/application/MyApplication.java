@@ -2,6 +2,7 @@ package com.example.herbert.fightgo.application;
 
 import android.app.Application;
 
+import com.lzy.okgo.OkGo;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
@@ -27,6 +28,8 @@ public class MyApplication extends Application {
 
         JPushInterface.setDebugMode(true);
         JPushInterface.init(this);
+
+        OkGo.getInstance().init(this);
     }
 
 

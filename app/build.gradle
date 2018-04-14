@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -43,7 +43,11 @@ android {
         }
     }
 }
-
+greendao {
+    schemaVersion 1
+    daoPackage 'com.example.herbert.fightgo.greendao'
+    targetGenDir 'src/main/java'
+}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -73,6 +77,9 @@ dependencies {
     compile 'cn.jiguang.sdk:jpush:3.1.1'
     // 此处以JPush 3.1.1 版本为例。
     compile 'cn.jiguang.sdk:jcore:1.1.9'
-    // 此处以JCore 1.1.9 版本为例。
-    implementation 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.lzy.net:okgo:3.0.4'
+    compile 'com.github.bumptech.glide:glide:4.3.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.3.1'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.7'
+    compile 'org.greenrobot:greendao:3.2.2'
 }

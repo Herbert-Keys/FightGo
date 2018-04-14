@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
         android:id="@+id/tv_f3"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="Fragment3"
         android:textSize="20sp"
-        android:background="#00f"
-        android:layout_marginTop="140dp"
-        android:gravity="center"/>
-</FrameLayout>
+        android:gravity="start"/>
+    <LinearLayout
+        android:id="@+id/ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_f3"
+        >
+        <Button
+            android:id="@+id/dao_add"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="增"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/dao_cancel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="删"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/dao_update"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="改"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/dao_query"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="查"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>
