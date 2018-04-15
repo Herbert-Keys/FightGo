@@ -42,6 +42,7 @@ android {
             keyPassword "123456"
         }
     }
+
 }
 greendao {
     schemaVersion 1
