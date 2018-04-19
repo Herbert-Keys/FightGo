@@ -21,7 +21,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
@@ -35,7 +34,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5abf26088f4a9d332600020d"></meta-data>
+            android:value="5abf26088f4a9d332600020d" />
 
         <activity
             android:name=".MainActivity"
@@ -84,7 +83,7 @@
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
             android:launchMode="singleTask"
@@ -191,7 +190,7 @@
         <service
             android:name="cn.jpush.android.service.DownloadService"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <!-- Required SDK核心功能 -->
         <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
@@ -230,7 +229,8 @@
             android:name="JPUSH_APPKEY"
             android:value="5c6b103e3931f63f1928a33c" />
 
-        <activity android:name=".activity.JPushActivity"></activity>
+        <activity android:name=".activity.JPushActivity" />
+        <activity android:name=".activity.MarqueeActivity"></activity>
     </application>
 
 </manifest>

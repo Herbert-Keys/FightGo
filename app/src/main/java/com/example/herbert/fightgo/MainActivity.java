@@ -33,6 +33,7 @@ import com.example.herbert.fightgo.Model.RecyclerItemModel;
 import com.example.herbert.fightgo.activity.BottomNavigationActivity;
 import com.example.herbert.fightgo.activity.FullscreenActivity;
 import com.example.herbert.fightgo.activity.JPushActivity;
+import com.example.herbert.fightgo.activity.MarqueeActivity;
 import com.example.herbert.fightgo.activity.ScrollingActivity;
 import com.example.herbert.fightgo.activity.TabLayoutActivity;
 import com.example.herbert.fightgo.activity.UmengShareActivity;
@@ -118,6 +119,9 @@ public class MainActivity extends AppCompatActivity
                     case "JPushActivity":
                         startActivity(new Intent(MainActivity.this, JPushActivity.class));
                         break;
+                    case "MarqueeActivity":
+                        startActivity(new Intent(MainActivity.this, MarqueeActivity.class));
+                        break;
                 }
             }
 
@@ -153,6 +157,7 @@ public class MainActivity extends AppCompatActivity
         data.add(new RecyclerItemModel("TabLayout",R.mipmap.black));
         data.add(new RecyclerItemModel("UmengShareActivity",R.mipmap.red));
         data.add(new RecyclerItemModel("JPushActivity",R.mipmap.green));
+        data.add(new RecyclerItemModel("MarqueeActivity",R.mipmap.yellow));
     }
 
     @Override
