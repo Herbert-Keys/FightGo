@@ -38,6 +38,7 @@ import com.example.herbert.fightgo.activity.ScrollingActivity;
 import com.example.herbert.fightgo.activity.TabLayoutActivity;
 import com.example.herbert.fightgo.activity.UmengShareActivity;
 import com.example.herbert.fightgo.adapter.MyRecyclerViewAdapter;
+import com.example.herbert.fightgo.bean.AidlActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,6 +123,9 @@ public class MainActivity extends AppCompatActivity
                     case "MarqueeActivity":
                         startActivity(new Intent(MainActivity.this, MarqueeActivity.class));
                         break;
+                    case "AidlActivity":
+                        startActivity(new Intent(MainActivity.this, AidlActivity.class));
+                        break;
                 }
             }
 
@@ -158,6 +162,7 @@ public class MainActivity extends AppCompatActivity
         data.add(new RecyclerItemModel("UmengShareActivity",R.mipmap.red));
         data.add(new RecyclerItemModel("JPushActivity",R.mipmap.green));
         data.add(new RecyclerItemModel("MarqueeActivity",R.mipmap.yellow));
+        data.add(new RecyclerItemModel("AidlActivity",R.mipmap.black));
     }
 
     @Override

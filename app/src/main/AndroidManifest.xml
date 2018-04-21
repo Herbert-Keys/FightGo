@@ -230,7 +230,15 @@
             android:value="5c6b103e3931f63f1928a33c" />
 
         <activity android:name=".activity.JPushActivity" />
-        <activity android:name=".activity.MarqueeActivity"></activity>
+        <activity android:name=".activity.MarqueeActivity" />
+
+        <service
+            android:name=".bean.MyAidlService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":aidl"></service>
+
+        <activity android:name=".bean.AidlActivity"></activity>
     </application>
 
 </manifest>
