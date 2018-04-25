@@ -15,15 +15,25 @@
         android:background="@drawable/marquee_shape"
         android:layout_margin="30dp"
         app:direction="left"
-        app:isRepeat="true"
-        app:speed="100"
+        app:isRepeat="false"
+        app:speed="50"
         app:startPoint="end"
         app:textSize="16sp"
         app:textcolor="@color/colorAccent" />
     <com.tencent.smtt.sdk.WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     </com.tencent.smtt.sdk.WebView>
+    <com.marquee.dingrui.marqueeviewlib.MarqueeView
+        android:id="@+id/mv_main3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        app:marqueeview_text_startlocationdistance="0.2"
+        app:marqueeview_text_distance="100"
+        app:marqueeview_repet_type="repet_continuous"
+        app:marqueeview_text_size="15"
+        app:marqueeview_text_speed="2" />
 </LinearLayout>
